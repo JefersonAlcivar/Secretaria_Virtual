@@ -1,0 +1,115 @@
+<header>
+    <h1>Bienvenido a la Secretaria Virtual</h1>
+</header>
+<nav>
+    <a routerLink="/inicio">Servicios</a>
+    <a routerLink="/sobre-nosotros">Sobre Nosotros</a>
+    <a routerLink="/contacto">Contacto</a>
+    <a routerLink="/login" class="login">Iniciar Sesión</a>
+</nav>
+
+<body>
+    <br>
+    <form class="formulario" [formGroup]="myforde" (ngSubmit)="onSubmit()">
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Información Personal</h4>
+                <br>
+                <div class="form-input">
+                    <label><strong>Cédula:</strong></label><br>
+                    <input class="form-control" type="number" formControlName="cedula" required>
+                    <span *ngIf="myforde.get('cedula')?.errors?.['required']" class="text-danger">
+                        <br>
+                        La <strong>Cédula</strong> no puede quedar vacío.
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="form-input">
+                    <label><strong>Correo electrónico:</strong></label><br>
+                    <input class="form-control" type="email" formControlName="email" placeholder="example@gmail.com" required>
+                    <span *ngIf="this.myforde.get('email')?.errors?.['required']" class="text-danger">
+                        El <strong>email</strong> no puede quedar vacío
+                    </span>
+                    <span *ngIf="this.myforde.get('email')?.errors?.['email']" class="text-danger">
+                        El <strong>email</strong> no es válido
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="form-input">
+                    <label><strong>Teléfono:</strong></label><br>
+                    <input class="form-control" type="number" formControlName="phone" required>
+                    <span *ngIf="myforde.get('phone')?.errors?.['required']" class="text-danger">
+                        El <strong>teléfono</strong> no puede quedar vacío.
+                    </span>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="col-md-6">
+                <h4>Información Académica</h4>
+                <br>
+                <div class="form-input">
+                    <label><strong>Nombre de Usuario:</strong></label><br>
+                    <input class="form-control" type="text" formControlName="username" required>
+                    <span *ngIf="this.myforde.get('username')?.errors?.['required']" class="text-danger">
+                        Los <strong>nombres</strong> no puede quedar vacío
+                    </span>
+                    <span *ngIf="this.myforde.get('username')?.errors?.['minlength']" class="text-danger">
+                        Debe tener como <strong>mínimo</strong> 5 caracteres
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="form-input">
+                    <label><strong>Contraseña:</strong></label><br>
+                    <input class="form-control" type="password" formControlName="password2" required>
+                    <span *ngIf="this.myforde.get('password2')?.errors?.['required']" class="text-danger">
+                        <br>
+                        La <strong>contraseña</strong> no puede quedar vacía
+                    </span>
+                    <span *ngIf="this.myforde.get('password2')?.errors?.['minlength']" class="text-danger">
+                        Debe tener como <strong>mínimo</strong> 6 caracteres
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="form-input">
+                    <label><strong>Dirección:</strong></label><br>
+                    <input class="form-control" type="text" formControlName="direccion" required>
+                    <span *ngIf="this.myforde.get('direccion')?.errors?.['required']" class="text-danger">
+                        La <strong>dirección</strong> no puede quedar vacía
+                    </span>
+                    <span *ngIf="this.myforde.get('direccion')?.errors?.['minlength']" class="text-danger">
+                        Debe tener como <strong>mínimo</strong> 5 caracteres
+                    </span>
+                </div>
+        
+            </div>
+        </div>
+
+        <br>
+
+        <div class="link">
+            <p class="link-inicio"><a href="../login/"> ¿Ya tienes Cuenta? </a></p>
+        </div>
+
+        <div class="button-container">
+            <button type="submit" class="btn btn-primary btn-lg" [disabled]="myforde.invalid">Guardar</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="history.back()">Regresar</button>
+        </div>
+    </form>
+    <br>
+
+    <footer>
+        <p>Derechos de autor © 2024 Secretaria Virtual. Todos los derechos reservados.</p>
+    </footer>
+</body>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contacto.component.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Bienvenido a la Secretaria Virtual</h1>
+    </header>
+    <nav>
+        <a routerLink="/servicios">Servicios</a>
+        <a routerLink="/sobre-nosotros">Sobre Nosotros</a>
+        <a routerLink="/contacto">Contacto</a>
+        <a routerLink="/login" class="login">Iniciar Sesión</a>
+    </nav>
+    <div class="Formulario">
+
+        <div class="columna">
+            <form  class="row" [formGroup]="myform" (ngSubmit)="onSubmit()" >
+                <h2>CONTACTO</h2>
+
+                <div>
+                    <br>
+                    <input type="text" class="form-control" formControlName="username" placeholder="Jhon Doe" required>
+                    <span *ngIf="this.myform.get('username')?.errors?.['required']" class="text-danger">
+                        Los <strong>nombres</strong> no pueden quedar vacíos
+                    </span>
+                    <br>
+                    <span *ngIf="this.myform.get('username')?.errors?.['minlength']" class="text-danger">
+                        Debe tener como <strong>mínimo</strong> 10 caracteres
+                    </span>
+
+                    <br>
+
+                    <input type="email" class="form-control" formControlName="email"
+                        placeholder="example@gmail.com" required>
+                    <span *ngIf="this.myform.get('email')?.errors?.['required']" class="text-danger">
+                        El <strong>email</strong> no puede quedar vacío
+                    </span>
+                    <span *ngIf="this.myform.get('email')?.errors?.['email']" class="text-danger">
+                        El <strong>email</strong> no es válido
+                    </span>
+
+                </div>
+            
+                <div>
+                        <textarea rows="4" cols="1" class="form-control"  formControlName="message" required ></textarea>
+                      <span  *ngIf="this.myform.get('message')?.errors?.['required']" class="text-danger">
+                        El <strong>Mensaje</strong> no puede quedar vacío
+                      </span>
+                      <span *ngIf="this.myform.get('message')?.errors?.['maxlength']">
+                        Debe tener como <strong>máximo</strong> 500 caracteres
+                      </span>
+                </div>
+                
+                <div>
+                <label class="text">
+                  <input type="file" name="upload" formControlName="archivo"  class="form-control"
+                   class="" >
+                </label>
+                <br>
+              </div>
+        
+                
+            <div class="button-container">
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg"  [disabled]="myform.invalid" >Guardar</button>
+                &nbsp; 
+                <button    type="submit" class="btn btn-primary btn-lg" ><a href="javascript: history.go(-1)">Volver</a></button>
+            </div>
+        
+          </form>
+        </div>
+    </div>
+    <br>
+
+</body>
+<footer>
+    <p>Derechos de autor © 2024 Secretaria Virtual. Todos los derechos reservados.</p>
+</footer>
+</html>

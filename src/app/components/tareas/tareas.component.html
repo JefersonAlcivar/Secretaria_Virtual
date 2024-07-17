@@ -1,0 +1,36 @@
+<header>
+    <h1>Bienvenido a la Secretaria Virtual</h1>
+</header>
+<nav>
+    <a routerLink="/inicio">Servicios</a>
+    <a routerLink="/sobre-nosotros">Sobre Nosotros</a>
+    <a routerLink="/contacto">Contacto</a>
+
+</nav>
+
+<div class="tareas-container">
+    <header>
+      <h1>Consulta de Tareas</h1>
+    </header>
+  
+    <input type="number" id="id_tarea" placeholder="Ingrese el ID de la tarea" />
+    <button (click)="consultarTarea()">Consultar Tarea</button>
+  
+    <div *ngIf="idTareaConsultada" class="tarea-detalle">
+      <h2>Detalles de la Tarea</h2>
+      <p><strong>ID:</strong> {{ idTareaConsultada.id }}</p>
+      <p><strong>Estado:</strong> {{ idTareaConsultada.estado }}</p>
+      <p><strong>Fecha de Entrega:</strong> {{ idTareaConsultada.fechaEntrega }}</p>
+    </div>
+  
+    <div *ngIf="!idTareaConsultada" class="no-encontrada">
+      <p>Tarea no encontrada. Intente con otro ID.</p>
+    </div>
+  
+    <button (click)="onClick()" class="logout-button">Cerrar Sesión</button>
+    <br><br>
+    <button type="submit" class="btn btn-primary btn-lg" onclick="history.back()">Regresar</button>
+
+  </div>
+
+

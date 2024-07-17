@@ -1,0 +1,25 @@
+<header>
+    <h1>Bienvenido a la Secretaria Virtual</h1>
+</header>
+<nav>
+    <a routerLink="/inicio">Servicios</a>
+    <a routerLink="/sobre-nosotros">Sobre Nosotros</a>
+    <a routerLink="/contacto">Contacto</a>
+    <a routerLink="/login" class="login">Iniciar Sesión</a>
+</nav>
+<div class="container faqs-container">
+    <p>Encuentra respuestas a preguntas frecuentes.</p>
+    <div *ngFor="let faq of faqs">
+        <h3>{{ faq.question }}</h3>
+        <p>{{ faq.answer }}</p>
+    </div>
+</div>
+<br>
+<div class="button-container">
+    <br>
+    <button type="submit" class="btn btn-primary btn-lg" onclick="history.back()">Regresar</button>
+</div>
+<br>
+<footer>
+    <p>Derechos de autor © 2024 Secretaria Virtual. Todos los derechos reservados.</p>
+</footer>

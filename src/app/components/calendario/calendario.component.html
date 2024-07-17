@@ -1,0 +1,29 @@
+<header>
+    <h1>Bienvenido a la Secretaria Virtual</h1>
+</header>
+<nav>
+    <a routerLink="/inicio">Servicios</a>
+    <a routerLink="/sobre-nosotros">Sobre Nosotros</a>
+    <a routerLink="/contacto">Contacto</a>
+    <a routerLink="/login" class="login">Iniciar Sesión</a>
+</nav>
+<div class="calendario-container">
+    <header>
+      <h2>{{ fechaActual | date:'MMMM y' }}</h2>
+    </header>
+  
+    <div class="navigation">
+      <button (click)="cambiarMes(-1)">Mes Anterior</button>
+      <button (click)="cambiarMes(1)">Mes Siguiente</button>
+    </div>
+  
+    <div class="dias">
+      <div *ngFor="let dia of diasDelMes" class="dia">
+        <p>{{ dia }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="button-container">
+    <button type="submit" class="btn btn-primary btn-lg" onclick="history.back()">Regresar</button>
+</div>

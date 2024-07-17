@@ -1,0 +1,33 @@
+<header>
+    <h1>Bienvenido a la Secretaria Virtual</h1>
+</header>
+<nav>
+    <a routerLink="/inicio">Servicios</a>
+    <a routerLink="/sobre-nosotros">Sobre Nosotros</a>
+    <a routerLink="/contacto">Contacto</a>
+    <a routerLink="/login" class="login">Iniciar Sesión</a>
+</nav>
+
+<div class="notificaciones-container">
+    <header>
+      <h1>Notificaciones Pendientes</h1>
+    </header>
+  
+    <ul class="notificaciones-list">
+      <li *ngFor="let notificacion of notificaciones" class="notificacion-item">
+        <p><strong>ID:</strong> {{ notificacion.id }}</p>
+        <p><strong>Mensaje:</strong> {{ notificacion.mensaje }}</p>
+        <p><strong>Estado:</strong> {{ notificacion.estado }}</p>
+      </li>
+    </ul>
+  
+
+
+    <div class="button-container">
+        <button (click)="onClick()" class="btn btn-primary btn-lg half-button">Cerrar Sesión</button>
+        <button type="button" class="btn btn-primary btn-lg half-button" onclick="history.back()">Regresar</button>
+    </div>
+    
+
+  </div>
+  

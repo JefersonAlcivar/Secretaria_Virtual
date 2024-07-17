@@ -1,0 +1,61 @@
+<header>
+    <h1>Bienvenido a la Secretaria Virtual</h1>
+</header>
+<nav>
+    <a routerLink="/inicio">Servicios</a>
+    <a routerLink="/sobre-nosotros">Sobre Nosotros</a>
+    <a routerLink="/contacto">Contacto</a>
+    <a routerLink="/login" class="login">Iniciar Sesión</a>
+</nav>
+<body>
+    <br>
+    <form class="formulario" [formGroup]="myfa" (ngSubmit)="onSubmit()">
+
+        <div class="correo">
+            <label><strong>Correo:</strong></label>
+            <input class="form-control" type="email" formControlName="email" placeholder="Correo electrónico" required>
+            <span *ngIf="this.myfa.get('email')?.errors?.['required']" class="text-danger">
+                El <strong>Correo</strong> no puede quedar vacío
+            </span>
+            <span *ngIf="this.myfa.get('email')?.errors?.['minlength']" class="text-danger">
+                Debe tener como <strong>mínimo</strong> 10 caracteres
+            </span>
+        </div>
+
+        <br>
+
+        <div class="form-input">
+            <label><strong>Contraseña:</strong></label>
+            <input class="form-control" type="password" formControlName="password" placeholder="Contraseña" required>
+            <span *ngIf="this.myfa.get('password')?.errors?.['required']" class="text-danger">
+                La <strong>contraseña</strong> no puede quedar vacía
+            </span>
+            <span *ngIf="this.myfa.get('password')?.errors?.['minlength']" class="text-danger">
+                Debe tener como <strong>mínimo</strong> 6 caracteres
+            </span>
+        </div>
+
+        <br>
+        <br>
+        <p class="link-registro"><a href="../register/"> ¿Aún no tienes cuenta? </a></p>
+        <p class="link-registro"><a href="../recuperar/"> ¿Recuperar contraseña? </a></p>
+
+        <br>
+
+        <div class="button-container">
+            <button type="submit" class="btn btn-primary btn-lg" [disabled]="myfa.invalid">Guardar</button>
+            <button type="submit" class="btn btn-primary btn-lg" onclick="history.back()">Regresar</button>
+        </div>
+
+
+        
+    </form>
+    <br>
+    <div>
+    </div>
+    <br>
+
+</body>
+<footer>
+    <p>Derechos de autor © 2024 Secretaria Virtual. Todos los derechos reservados.</p>
+</footer>

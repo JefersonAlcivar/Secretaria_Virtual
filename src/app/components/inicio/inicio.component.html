@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secretaria Virtual</title>
+    <link rel="stylesheet" href="./inicio.component.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a la Secretaria Virtual</h1>
+    </header>
+    <nav>
+        <a routerLink="/inicio">Servicios</a>
+        <a routerLink="/sobre-nosotros">Sobre Nosotros</a>
+        <a routerLink="/contacto">Contacto</a>
+    </nav>
+    <div class="container">
+        <div class="navigation">
+            <div class="card" onclick="location.href='../chat-en-vivo'">
+                <h3>Chat en Vivo</h3>
+                <p>Habla con tu asistente virtual</p>
+            </div>
+            <div class="card" onclick="location.href='../calendario'">
+                <h3>Calendario</h3>
+                <p>Organiza tus eventos y citas</p>
+            </div>
+            <div class="card" onclick="location.href='../tareas'">
+                <h3>Tareas</h3>
+                <p>Gestiona tus tareas pendientes</p>
+            </div>
+            <div class="card" onclick="location.href='../contacto'">
+                <h3>Formulario de Contacto</h3>
+                <p>Contáctanos para más información</p>
+            </div>
+            <div class="card" onclick="location.href='../preguntas-y-respuestas'">
+                <h3>FAQs</h3>
+                <p>Respuestas a preguntas frecuentes</p>
+            </div>
+            <div class="card" onclick="location.href='../register'">
+                <h3>Registro y Gestión de Usuarios</h3>
+                <p>Regístrate y gestiona tu cuenta</p>
+            </div>
+            <div class="card" onclick="location.href='../notificaciones'">
+                <h3>Notificaciones</h3>
+                <p>Recibe actualizaciones importantes</p>
+            </div>
+        </div>
+
+
+      
+    </div>
+    <script src="js/script.js"></script>
+</body>
+<footer>
+    <p>Derechos de autor © 2024 Secretaria Virtual. Todos los derechos reservados.</p>
+</footer>
+</html>

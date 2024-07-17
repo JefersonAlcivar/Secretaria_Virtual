@@ -1,0 +1,27 @@
+<header>
+    <h1>Bienvenido a la Secretaria Virtual</h1>
+</header>
+<nav>
+    <a routerLink="/inicio">Servicios</a>
+    <a routerLink="/sobre-nosotros">Sobre Nosotros</a>
+    <a routerLink="/contacto">Contacto</a>
+    <a routerLink="/login" class="login">Iniciar Sesión</a>
+</nav>
+<div class="chat-container">
+    <div class="messages">
+      <div *ngFor="let message of messages" class="message">
+        <strong>{{ message.sender }}:</strong> {{ message.content }}
+      </div>
+    </div>
+  
+    <input [(ngModel)]="messageContent" placeholder="Escribe un mensaje..." />
+    <br>
+    <br>
+
+    <div class="button-container">
+        <button (click)="sendMessage()" class="btn btn-primary btn-lg half-button">Enviar</button>
+
+        <button type="submit" class="btn btn-primary btn-lg half-button" onclick="history.back()">Regresar</button>
+    </div>
+  </div>
+  

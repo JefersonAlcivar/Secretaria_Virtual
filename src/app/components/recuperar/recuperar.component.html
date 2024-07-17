@@ -1,0 +1,67 @@
+<header>
+    <h1>Bienvenido a la Secretaria Virtual</h1>
+</header>
+<nav>
+    <a routerLink="/servicios">Servicios</a>
+    <a routerLink="/nosotros">Sobre Nosotros</a>
+    <a routerLink="/contacto">Contacto</a>
+    <a routerLink="/login" class="login">Iniciar Sesión</a>
+</nav>
+<body>
+<form class="formulario">
+
+<div class="wrapper">
+    <div *ngIf="!loading" class="body">
+      <h2>Recuperar Contraseña</h2>
+      <form [formGroup]="recuperarUsuario" (ngSubmit)="recuperar()">
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            formControlName="correo"
+            placeholder="name@example.com"
+          />
+          <label>Email</label>
+          <span
+            *ngIf="
+              recuperarUsuario.get('correo')?.hasError('required') &&
+              recuperarUsuario.get('correo')?.touched
+            "
+            class="text-danger errorLabel"
+          >
+            El <strong>correo</strong> es requerido
+          </span>
+          <span
+            *ngIf="
+              recuperarUsuario.get('correo')?.hasError('email') &&
+              recuperarUsuario.get('correo')?.touched
+            "
+            class="text-danger errorLabel"
+          >
+            El <strong>correo</strong> es invalido
+          </span>
+        </div>
+       
+
+
+        <div class="button-container">
+            <button
+            type="submit"
+            class="btn btn-primary btn-lg"
+            [disabled]="recuperarUsuario.invalid">
+            Recuperar Contraseña
+          </button>
+
+          <button type="button" class="btn btn-primary btn-lg" onclick="history.back()">Regresar</button>
+        </div>
+
+     </form>
+    </div>
+    <div *ngIf="loading" class="loading">
+      <p>Enviando correo de recuperación...</p>
+    </div>
+  </div>
+
+</form>
+
+</body>
